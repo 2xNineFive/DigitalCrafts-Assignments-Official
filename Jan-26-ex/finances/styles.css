@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+}
+
+.main-container {
+    margin: 5rem;
+    display: flex;
+    width: 75%;
+    height: 10rem;
+    column-gap: 20px;
+}
+
+.flex-item-1 {
+    border-radius: 20px;
+    order: 2;
+    flex-grow: 1;
+    background-color: rgb(231, 160, 29);
+}
+
+.flex-item-2 {
+    order: 1;
+    flex-grow: 3;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.fi-2__1 {
+    border-radius: 20px;
+    background-color: rgb(234, 234, 120);
+    flex-grow: 1;
+    background-color: ;
+}
+
+.green {
+    background-color: rgb(86, 153, 86);
+}
+
+round the edges!!!!!!!

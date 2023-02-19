@@ -1,0 +1,4 @@
+1. My file did not become an executable
+2. Do I need to setup a path?
+3. Do I need to create an alias for bashr?
+
