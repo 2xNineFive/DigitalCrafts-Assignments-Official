@@ -19,9 +19,13 @@ function getAllItems() {
 
 // Is this an argument or an a function, or a function/argument???
 // Regarldess of the order, node will dispaly it in the same reverse order.
+
+// This is called firing a function. `addItem1 has an argument. 
 addItem('dip');
 getAllItems();
 
+// This will fire before the two functions 
+console.log('a string');
 
 // We have a shopping list with three items. And we have a function that gets items and another that adds items. 
 
