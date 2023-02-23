@@ -1,0 +1,35 @@
+
+
+
+.container {
+    display: flex;
+    column-gap: 10px;
+}
+
+
+.container div  {
+    background-color: cornflowerblue;
+    flex: 1;
+    height: 25px;
+}
+
+.count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    padding: 50px;
+}
+
+.button {
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+
+}
+
+button {
+    width: 100px;
+}
