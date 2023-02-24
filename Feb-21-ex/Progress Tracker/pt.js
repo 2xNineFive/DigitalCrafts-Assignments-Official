@@ -32,6 +32,7 @@ function renderCount () {
 // We are trying to get the button to change to 2.
 // These are my buttons to change back and forth. 
 const forwardButton = document.getElementById('forward');
+
 const backButton = document.getElementById('back');
 
 
