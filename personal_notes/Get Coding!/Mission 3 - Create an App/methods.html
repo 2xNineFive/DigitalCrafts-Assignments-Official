@@ -7,9 +7,17 @@
     <title>Methods</title>
 </head>
 <body>
-    <input type="button" value="Add item" id="">
+    <input type="button" value="Add item" onclick="addItem();"/>
     <br/>
 
+    <div id="container"></div>
     
+
+
+    <script>
+        function addItem() {
+            document.getElementById('container').innerHTML = 'Item to remember';
+        }
+    </script>
 </body>
 </html>
