@@ -5,38 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List App</title>
-
-    <style>
-        .button {
-            background-color: rgb(255, 99, 99);
-        }
-    </style>
-
 </head>
 
 <body>
-    <div>
-        <p>Special Exhbition To-Do List</p>
-        <br/>
+    <p>Special Exhibition To-Do List</p>
+    <br>
 
-        <input type="text" value="Type here to add task">
-        <br/>
+    <input type="text" id="task-box" value="" placeholder="Type here to add task">
+    <br>
 
-        <input type="button" value="Add item" class="button" onclick='addItem();'>
-        <br/>
+    <input type="button" value="Add item" onclick="addItem();">
+    <br>
 
-        <div id="list"></div>
-
-    </div>
-
+    <div id="list"></div>
 
 
     <script>
         function addItem() {
             const newItem = document.createElement('div');
-            newItem.textContent = 'New Item';
+            newItem.textContent = document.getElementById('task-box').value;
             document.getElementById('list').appendChild(newItem);    
         }
     </script>
+
 </body>
 </html>
