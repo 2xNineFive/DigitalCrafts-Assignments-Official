@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <div>
+        <div>
+            <header class="header">
+                <h1 class="header">Frankie's Chores</h1>
+            </header>
+        </div>
+        <br>
+
+
+        <div class="text-box">
+            <input type="text" id="box" value='' placeholder="Type your chore here">
+        </div>
+        <br>
+
+
+        <div class="button">
+            <input type="button" id="button" value="Add Item" onclick="addItem();">
+        </div>
+
+        <div class="list" id="list" >
+            <div onclick='removeItemHard(this)'>Wiah</div>
+        </div>
+    </div>
+
+
+    <script src="./main.js"></script>
+</body>
+</html>
