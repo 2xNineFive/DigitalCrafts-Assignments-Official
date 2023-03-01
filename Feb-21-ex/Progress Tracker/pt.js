@@ -23,7 +23,7 @@ position.textContent = questions[currentIndex];
 // This is initializing the count to 1.
 // This needs to go inside of a renderFunction. 
 
-function renderCount () {
+function renderCount() {
     position.textContent = questions[currentIndex];
     console.log (questions[currentIndex]);
 };
@@ -48,10 +48,6 @@ backButton.addEventListener('click', () => {
 });
 
 // I still need 
-
-
-
-
 
 
 
