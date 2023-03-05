@@ -65,18 +65,15 @@ dealButton.addEventListener('click', () => {
   
 
   function dealPlayer () {
-    const cardsArray = [
-      "./images/9_of_spades.png"
-    ];
-
-    const imgTag = document.createElement('img');
-    imgTag.src = cardsArray[0];
-    playerHand.appendChild(imgTag);
 
     const getCard = deck.pop();
     playersHand.push(getCard);
     // console.log(playersHand);
-    
+
+    const imgTag = document.createElement('img');
+    imgTag.src = `./images/${playersHand[0]}`;
+    playerHand.appendChild(imgTag);
+
   }
 
   function dealDealer () {
@@ -164,7 +161,7 @@ let dealersHand = [];
 
 
 let playersHand = [];
-// console.log(dealersHand);
+
 
 
 
