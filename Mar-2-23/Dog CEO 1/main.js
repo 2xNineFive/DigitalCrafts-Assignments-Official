@@ -11,10 +11,17 @@
 //     console.log(value);
 // });
 
-const dogImg = fetch("https://dog.ceo/api/breeds/image/random")
-  .then((response) => response.json())
-  .then((data) => data.message) ;
 
+
+
+// Fetch API is different for Node and for Browser. 
+// Node is JS outside of a browser. 
+// The browser is its own environment and Node is also its own environment. 
+// Node can be used on the server side. 
+
+const dogImg = fetch("https://dog.ceo/api/breeds/image/random")
+.then((response) => response.json())
+.then((data) => console.log(data.message));
 
 // const promise1 = new Promise((resolve, reject) => {
 //     resolve(dogImg);
