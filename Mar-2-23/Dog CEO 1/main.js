@@ -21,7 +21,7 @@
 
 const dogImg = fetch("https://dog.ceo/api/breeds/image/random")
 .then((response) => response.json())
-.then((data) => console.log(data.message));
+.then((data) => console.log(data));
 
 // const promise1 = new Promise((resolve, reject) => {
 //     resolve(dogImg);
