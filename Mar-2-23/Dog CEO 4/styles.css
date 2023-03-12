@@ -11,14 +11,32 @@ body {
 }
 
 .header {
-    margin-top: 25px;
+    margin-top: 5px;
     margin-left: 3px;
     margin-right: 3px;
     text-align: center;
 }
 
+.instructions-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    /* margin-left: 10px;
+    margin-right: 10px; */
+}
+
+
+.score-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .image-container {
-    margin-top: 25px;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     /* align-items: center; */
@@ -46,6 +64,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .button {

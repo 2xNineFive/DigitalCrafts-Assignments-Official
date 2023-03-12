@@ -1,15 +1,31 @@
 
 
+// These are all my global variables
+// const getScore = document.getElementById('score');
+// console.log(getScore);
+
+// let playerScore = getScore;
+// console.log(getScore);
 
 const button = document.getElementById('button');
-const dogImageButtons = document.getElementById('image-container');
-
+// const disableButton = () => {
+    //     button.disabled = false;
+    // }
+    
+const dogImagesHandler = document.getElementById('image-container');
+// const disableDogImagesHandler = () => {
+    //     dogImagesHandler.disabled = true
+    // }
+        
 const dog1 = document.getElementById("dog-image-1");
 const dog2 = document.getElementById("dog-image-2");
 const dog3 = document.getElementById("dog-image-3");
 const dog4 = document.getElementById("dog-image-4");
 
+
+// These are my buttons 
 button.addEventListener('click', () => {
+
     function myfunction() {
         dog1.src="https://images.dog.ceo/breeds/frise-bichon/3.jpg";
         dog1.style="";
@@ -27,11 +43,21 @@ button.addEventListener('click', () => {
 
 });
 
-dogImageButtons.addEventListener('click', function (e) {
-    const target = e.target
+dogImagesHandler.addEventListener('click', function (e) {
+
+
+    const target = e.target;
+
     if (target.matches('img')) {
-        console.log('It works!');
+        // console.log(target.dataset);
+        if (target.dataset.correct === 'true') {
+            console.log('correct')
+        } else {
+            console.log('incorrect')
+        }
+
     }
+
     if (!target.matches('img')) {
         console.log('Not an Image');
         return null;
