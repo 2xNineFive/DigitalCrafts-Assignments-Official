@@ -57,6 +57,7 @@ body {
 img {
     height: 10rem;
     width: 10rem;
+    border: 3px solid black;
     /* font-size: 0; */
 }
 

@@ -1,55 +1,73 @@
 
 
 // These are all my global variables
+
+// This is used to change the player's score in the DOM. 
 const getScore = document.getElementById('score');
 // console.log(getScore);
 
+// This is used to manage the state of the player's score. 
 let playerScore = 15;
 // console.log(playerScore);
 
-let tryCount = 1;
-// console.log(tryCount);
+// This is used to to manage the state of the player's turn. 
+let turnNumber = 1;
+// console.log(turnNumber);
 
-const button = document.getElementById('button');
+// This is used target the push button in the DOM. 
+const getImagesButton = document.getElementById('button');
+
+// This is used to keep track of the amount of img Nodes in the DOM. 
+let numberOfImages = document.getElementsByTagName('img').length
+console.log(numberOfImages);
+
+
+
 // const disableButton = () => {
     //     button.disabled = false;
     // }
     
-const dogImagesHandler = document.getElementById('image-container');
+const handleGameState = document.getElementById('image-container');
 // const disableDogImagesHandler = () => {
     //     dogImagesHandler.disabled = true
     // }
         
+    
 const dog1 = document.getElementById("dog-image-1");
 const dog2 = document.getElementById("dog-image-2");
 const dog3 = document.getElementById("dog-image-3");
 const dog4 = document.getElementById("dog-image-4");
-
-let canPush = false;
+    
+ 
 
 // These are my buttons 
-button.addEventListener('click', () => {
-    
+getImagesButton.addEventListener('click', () => {
     function myfunction() {
         dog1.src="https://images.dog.ceo/breeds/frise-bichon/3.jpg";
         dog1.style="";
+        // console.log(dog1.src);
         
         dog2.src="https://images.dog.ceo/breeds/sheepdog-shetland/n02105855_10608.jpg";
         dog2.style="";
+        // console.log(dog2.src);
         
         dog3.src="https://images.dog.ceo/breeds/beagle/n02088364_2572.jpg";
         dog3.style="";
+        // console.log(dog3.src);
         
         dog4.src="https://images.dog.ceo/breeds/sheepdog-english/n02105641_9319.jpg";
         dog4.style="";
+        // console.log(dog4.src);
     }
     myfunction(); 
-    
+
+
+
 });
 
 
 
-dogImagesHandler.addEventListener('click', function (e) {
+handleGameState.addEventListener('click', function (e) {
 
     const target = e.target;
     const correctDog = target.dataset.correct
@@ -59,8 +77,9 @@ dogImagesHandler.addEventListener('click', function (e) {
         // console.log(target.dataset);
 
         // works
-        if (correctDog === 'true' && tryCount === 1) {
-            console.log(`The try count is ${tryCount}`);
+        if (correctDog === 'true' && turnNumber === 1) {
+            // target.remove();
+            console.log(`The turn number is ${turnNumber}`);
             console.log('You selected "correct" on your 1st try!')
             
             // I want a message to display on the DOM so that the user gets feedback on their porformance. 
@@ -68,19 +87,19 @@ dogImagesHandler.addEventListener('click', function (e) {
             
             winThreePoints();
             updatePlayerScore();
-
-            resetCount();
-            console.log(`The try count has been reset to ${tryCount}`);
-            removeAllDogs();
-
-
+            
+            resetTurn();
+            console.log(`The turn number has been reset to ${turnNumber}`);
+            
+            
             console.log(`The player's score is ${playerScore}`);
+            removeAllDogs();
             return;
             console.log('cant see this');
         } 
-
-        if (correctDog === 'true' && tryCount === 2) {
-            console.log(`The try count is ${tryCount}`);
+        
+        if (correctDog === 'true' && turnNumber === 2) {
+            console.log(`The turn number is ${turnNumber}`);
             console.log('You selected "correct" on your 2nd try!')
             
             // I want a message to display on the DOM so that the user gets feedback on their porformance. 
@@ -88,19 +107,20 @@ dogImagesHandler.addEventListener('click', function (e) {
             
             winTwoPoints();
             updatePlayerScore();
-            resetCount();
-            console.log(`The try count has been reset to ${tryCount}`);
-
-            removeAllDogs();
-
+            
+            resetTurn();
+            console.log(`The try count has been reset to ${turnNumber}`);
+            
+            
             console.log(`The player's score is ${playerScore}`);
+            // removeAllDogs();
             return;
+            console.log('cant see this');
         } 
         
 
-        if (correctDog === 'true' && tryCount === 2) {
-            tryCount++
-            console.log(`The try count is ${tryCount}`);
+        if (correctDog === 'true' && turnNumber === 3) {
+            console.log(`The turn number is ${turnNumber}`);
             console.log('You selected "correct" on your 3rd try!')
             // I want a message to display on the DOM so that the user gets feedback on their porformance. 
             // this.textContent = 'correct!'
@@ -108,8 +128,8 @@ dogImagesHandler.addEventListener('click', function (e) {
             winOnePoint();
             updatePlayerScore();
 
-            resetCount();
-            console.log(`The try count is ${tryCount}`);
+            resetTurn();
+            console.log(`The turn number is ${turnNumber}`);
 
             removeAllDogs();
 
@@ -117,7 +137,8 @@ dogImagesHandler.addEventListener('click', function (e) {
             return;
         } 
         
-        if (correctDog === 'true' && tryCount === 3) {
+        if (correctDog === 'true' && turnNumber === 4) {
+            console.log(`The turn number is ${turnNumber}`);
             console.log('You selected "correct" on your 4th try!')
             // I want a message to display on the DOM so that the user gets feedback on their porformance. 
             // this.textContent = 'correct!'
@@ -125,11 +146,10 @@ dogImagesHandler.addEventListener('click', function (e) {
             lose5Points();
             updatePlayerScore();
             
-            console.log(`The try count is ${tryCount}`);
-            resetCount();
-            console.log(`The try count is ${tryCount}`);
+            resetTurn();
+            console.log(`The turn number is ${turnNumber}`);
 
-            removeAllDogs();
+            // removeAllDogs();
 
             console.log(`The player's score is ${playerScore}`);
             // return;
@@ -137,9 +157,11 @@ dogImagesHandler.addEventListener('click', function (e) {
       
         else {
             // console.log('incorrect')
-            console.log(`The try count is ${tryCount}`);
-            ++tryCount;
+            console.log(`The turn number is ${turnNumber}`);
+            ++turnNumber;
+            console.log(`The turn number is ${turnNumber}`);
             target.remove();
+            console.log(numberOfImages.length);
             // return;
 
         }
@@ -184,10 +206,12 @@ function updatePlayerScore() {
     getScore.textContent = `${playerScore}`;
 }
 
-function resetCount() {
-    tryCount = 1;
+// This function is used to updata the player's turn to 1. 
+function resetTurn() {
+    turnNumber = 1;
 }
 
+// This function is used to remove the dog images at the end of every wrong turn. It is also used to remove all dog images 
 function removeAllDogs() {
     dog1.src="";
     dog1.style="";
