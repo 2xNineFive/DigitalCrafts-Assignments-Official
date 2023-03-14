@@ -1,48 +1,43 @@
 
-
 // These are all my global variables
 
 // This is used to change the player's score in the DOM. 
-const getScore = document.getElementById('score');
-// console.log(getScore);
+const score = document.getElementById('score');
+// console.log(score);
+
 
 // This is used to manage the state of the player's score. 
 let playerScore = 15;
 // console.log(playerScore);
 
+
 // This is used to to manage the state of the player's turn. 
 let turnNumber = 1;
 // console.log(turnNumber);
 
-// This is used target the push button in the DOM. 
-const getImagesButton = document.getElementById('button');
+const prompt = document.getElementById('prompt');
+const feedback = document.getElementById('feedback');
+
+
 
 // This is used to keep track of the amount of img Nodes in the DOM. 
-let numberOfImages = document.getElementsByTagName('img').length
-console.log(numberOfImages);
+// const numberOfImages = document.getElementsByTagName('img').length
+// console.log(numberOfImages);
 
-
-
-// const disableButton = () => {
-    //     button.disabled = false;
-    // }
-    
-const handleGameState = document.getElementById('image-container');
-// const disableDogImagesHandler = () => {
-    //     dogImagesHandler.disabled = true
-    // }
-        
-    
+// These are the variables where the dog images will be stored. 
 const dog1 = document.getElementById("dog-image-1");
 const dog2 = document.getElementById("dog-image-2");
 const dog3 = document.getElementById("dog-image-3");
 const dog4 = document.getElementById("dog-image-4");
     
- 
-
-// These are my buttons 
+// This is used target the push button in the DOM. 
+const getImagesButton = document.getElementById('button');
 getImagesButton.addEventListener('click', () => {
     function myfunction() {
+        feedback.textContent= '';
+        getImagesButton.disabled= true;
+
+
         dog1.src="https://images.dog.ceo/breeds/frise-bichon/3.jpg";
         dog1.style="";
         // console.log(dog1.src);
@@ -63,16 +58,21 @@ getImagesButton.addEventListener('click', () => {
 
 
 
+
 });
 
 
 
-handleGameState.addEventListener('click', function (e) {
 
+// This is used to manage the state of the game. 
+const handleGameState = document.getElementById('image-container');
+// const disableDogImagesHandler = () => {
+    //     dogImagesHandler.disabled = true
+    // }
+
+handleGameState.addEventListener('click', function (e) {
     const target = e.target;
     const correctDog = target.dataset.correct
-
-
     if (target.matches('img')) {
         // console.log(target.dataset);
 
@@ -85,6 +85,7 @@ handleGameState.addEventListener('click', function (e) {
             // I want a message to display on the DOM so that the user gets feedback on their porformance. 
             // this.textContent = 'correct!'
             
+            feedback.textContent= 'Correct!'
             winThreePoints();
             updatePlayerScore();
             
@@ -94,6 +95,8 @@ handleGameState.addEventListener('click', function (e) {
             
             console.log(`The player's score is ${playerScore}`);
             removeAllDogs();
+            getImagesButton.disabled= false;
+
             return;
             console.log('cant see this');
         } 
@@ -105,15 +108,19 @@ handleGameState.addEventListener('click', function (e) {
             // I want a message to display on the DOM so that the user gets feedback on their porformance. 
             // this.textContent = 'correct!'
             
+            feedback.textContent= 'Correct!'
             winTwoPoints();
             updatePlayerScore();
             
             resetTurn();
-            console.log(`The try count has been reset to ${turnNumber}`);
+            console.log(`The turn number has been reset to ${turnNumber}`);
             
             
             console.log(`The player's score is ${playerScore}`);
-            // removeAllDogs();
+            removeAllDogs();
+            getImagesButton.disabled= false;
+
+
             return;
             console.log('cant see this');
         } 
@@ -125,6 +132,7 @@ handleGameState.addEventListener('click', function (e) {
             // I want a message to display on the DOM so that the user gets feedback on their porformance. 
             // this.textContent = 'correct!'
             
+            feedback.textContent= 'Correct!'
             winOnePoint();
             updatePlayerScore();
 
@@ -132,6 +140,8 @@ handleGameState.addEventListener('click', function (e) {
             console.log(`The turn number is ${turnNumber}`);
 
             removeAllDogs();
+            getImagesButton.disabled= false;
+
 
             console.log(`The player's score is ${playerScore}`);
             return;
@@ -143,26 +153,28 @@ handleGameState.addEventListener('click', function (e) {
             // I want a message to display on the DOM so that the user gets feedback on their porformance. 
             // this.textContent = 'correct!'
             
+            feedback.textContent= 'Correct!'
             lose5Points();
             updatePlayerScore();
             
             resetTurn();
             console.log(`The turn number is ${turnNumber}`);
 
-            // removeAllDogs();
+            removeAllDogs();
+            getImagesButton.disabled= false;
 
             console.log(`The player's score is ${playerScore}`);
-            // return;
+            return;
         } 
       
         else {
+            feedback.textContent= 'Inorrect! Try again.'
             // console.log('incorrect')
             console.log(`The turn number is ${turnNumber}`);
             ++turnNumber;
             console.log(`The turn number is ${turnNumber}`);
-            target.remove();
-            console.log(numberOfImages.length);
-            // return;
+            target.src ='';
+            return;
 
         }
     }
@@ -172,9 +184,7 @@ handleGameState.addEventListener('click', function (e) {
         return null;
     }
 
-});
-
-
+})
 
 // These functions are triggered when the User selects the correct answer. 
 function winThreePoints() {
@@ -203,7 +213,7 @@ function lose5Points() {
 
 // This function is used to update the player's score in the DOM. 
 function updatePlayerScore() {
-    getScore.textContent = `${playerScore}`;
+    score.textContent = `${playerScore}`;
 }
 
 // This function is used to updata the player's turn to 1. 
