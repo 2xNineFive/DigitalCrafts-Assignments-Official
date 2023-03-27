@@ -49,10 +49,10 @@ getImagesButton.addEventListener('click', () => {
             // console.log(links);
             return links;
         }
-
+    
         const setDogs = async () => {
             const one= await fetchDogs();
-            // console.log(one);
+            console.log(one);
             
             const two = await fetchDogs();
             // console.log(two);
@@ -63,7 +63,10 @@ getImagesButton.addEventListener('click', () => {
             const four = await fetchDogs();
             // console.log(four);
 
-            console.log(links)
+            const dogOne = links[0]
+            console.log(dogOne.match(/breeds/))
+
+
             dog1.src = links.pop();
             dog1.style = "";
             // console.log(dog1.src);
