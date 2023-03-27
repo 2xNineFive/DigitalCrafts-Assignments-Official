@@ -34,31 +34,55 @@ const dog4 = document.getElementById("dog-image-4");
 const getImagesButton = document.getElementById('button');
 getImagesButton.addEventListener('click', () => {
     function myfunction() {
-        feedback.textContent= '';
-        getImagesButton.disabled= true;
+        feedback.textContent = '';
+        getImagesButton.disabled = true;
 
 
-        dog1.src="https://images.dog.ceo/breeds/frise-bichon/3.jpg";
-        dog1.style="";
-        // console.log(dog1.src);
-        
-        dog2.src="https://images.dog.ceo/breeds/sheepdog-shetland/n02105855_10608.jpg";
-        dog2.style="";
-        // console.log(dog2.src);
-        
-        dog3.src="https://images.dog.ceo/breeds/beagle/n02088364_2572.jpg";
-        dog3.style="";
-        // console.log(dog3.src);
-        
-        dog4.src="https://images.dog.ceo/breeds/sheepdog-english/n02105641_9319.jpg";
-        dog4.style="";
-        // console.log(dog4.src);
+        let links = [];
+        const fetchDogs = async () => {
+            const x = await fetch('https://dog.ceo/api/breeds/image/random')
+            const response = await x.json();
+            // console.log(response);
+            const link = response.message
+            // console.log(link);
+            links.push(link);
+            // console.log(links);
+            return links;
+        }
+
+        const setDogs = async () => {
+            const one= await fetchDogs();
+            // console.log(one);
+            
+            const two = await fetchDogs();
+            // console.log(two);
+
+            const three = await fetchDogs();
+            // console.log(three);
+            
+            const four = await fetchDogs();
+            // console.log(four);
+
+            console.log(links)
+            dog1.src = links.pop();
+            dog1.style = "";
+            // console.log(dog1.src);
+
+            dog2.src = links.pop();
+            dog2.style = "";
+            // console.log(dog2.src);
+            
+            dog3.src = links.pop();
+            dog3.style = "";
+            // console.log(dog2.src);
+            
+            dog4.src = links.pop();
+            dog4.style = "";
+            // console.log(dog2.src);
+        }
+        setDogs();
     }
     myfunction(); 
-
-
-
-
 });
 
 
@@ -69,7 +93,7 @@ const handleGameState = document.getElementById('image-container');
 // const disableDogImagesHandler = () => {
     //     dogImagesHandler.disabled = true
     // }
-
+   
 handleGameState.addEventListener('click', function (e) {
     const target = e.target;
     const correctDog = target.dataset.correct
