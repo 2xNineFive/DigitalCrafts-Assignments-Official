@@ -38,52 +38,59 @@ getImagesButton.addEventListener('click', () => {
         getImagesButton.disabled = true;
 
 
-        let links = [];
-        const fetchDogs = async () => {
-            const x = await fetch('https://dog.ceo/api/breeds/image/random')
-            const response = await x.json();
-            // console.log(response);
-            const link = response.message
-            // console.log(link);
-            links.push(link);
-            // console.log(links);
-            return links;
-        }
+        // let links = [];
+        // const fetchDogs = async () => {
+        //     const x = await fetch('https://dog.ceo/api/breeds/image/random')
+        //     const response = await x.json();
+        //     // console.log(response);
+        //     const link = response.message
+        //     // console.log(link);
+        //     links.push(link);
+        //     // console.log(links);
+        //     return links;
+        // }
     
-        const setDogs = async () => {
-            const one= await fetchDogs();
-            console.log(one);
+        // const setDogs = async () => {
+        //     const one= await fetchDogs();
+        //     console.log(one);
             
-            const two = await fetchDogs();
-            // console.log(two);
+        //     const two = await fetchDogs();
+        //     // console.log(two);
 
-            const three = await fetchDogs();
-            // console.log(three);
+        //     const three = await fetchDogs();
+        //     // console.log(three);
             
-            const four = await fetchDogs();
-            // console.log(four);
+        //     const four = await fetchDogs();
+        //     // console.log(four);
 
-            const dogOne = links[0]
-            console.log(dogOne.match(/breeds/))
+        //     const dogOne = links[0]
+        //     console.log(dogOne.match(/breeds/))
 
 
-            dog1.src = links.pop();
-            dog1.style = "";
-            // console.log(dog1.src);
+        //     dog1.src = links.pop();
+        //     dog1.style = "";
+        //     // console.log(dog1.src);
 
-            dog2.src = links.pop();
-            dog2.style = "";
-            // console.log(dog2.src);
+        //     dog2.src = links.pop();
+        //     dog2.style = "";
+        //     // console.log(dog2.src);
             
-            dog3.src = links.pop();
-            dog3.style = "";
-            // console.log(dog2.src);
+        //     dog3.src = links.pop();
+        //     dog3.style = "";
+        //     // console.log(dog2.src);
             
-            dog4.src = links.pop();
-            dog4.style = "";
-            // console.log(dog2.src);
+        //     dog4.src = links.pop();
+        //     dog4.style = "";
+        //     // console.log(dog2.src);
+        // }
+        // setDogs();
+        const getBreedsList = async () => {
+            const x = await fetch ('https://dog.ceo/api/breeds/list/all');
+            const response = await x.json();
+            console.log(response);
+
         }
-        setDogs();
+        getBreedsList();
     }
     myfunction(); 
 });
