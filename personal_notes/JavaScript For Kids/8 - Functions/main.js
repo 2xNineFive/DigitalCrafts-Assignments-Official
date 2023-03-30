@@ -124,15 +124,13 @@ const phrase = `Frankie earned ${medalForScore(7)}`
 
 function ArraysSame(arr1, arr2) {
 
-    if (arr1.length != arr2.length) {
+    if (arr1.length !== arr2.length) {
         return false
     }
 
-    if (arr1.length === arr2.length) {
-        if(arr1.toString() === arr2.toString()) {
+    if(arr1.toString() === arr2.toString()) {
             return true
         }
         return false;
-    }
 };
 

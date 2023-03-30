@@ -19,20 +19,21 @@ console.log(arithAnswer);
 // #2 Are these Arrays the Same?
 function ArraysSame(arr1, arr2) {
 
-    if (arr1.length != arr2.length) {
+    if (arr1.length !== arr2.length) {
         console.log('false');
         return false
     }
 
     if (arr1.length === arr2.length) {
         for (i=0; i < arr1.length; i++) {
-            if (arr1[i] === arr2[i]) {
-                answer = true;
-                console.log(answer)
-                return true;
+            if (arr1[i] !== arr2[i]) {
+                return false;
             }
+
         }
+        // console.log(true)
+        return true;
     }
 };
 
-ArraysSame([0,1], [0,2,3]);
+console.log(ArraysSame([0,2,3], [0,2,4]));
