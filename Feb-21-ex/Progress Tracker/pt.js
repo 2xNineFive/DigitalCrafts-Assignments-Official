@@ -25,8 +25,14 @@ position.textContent = questions[currentIndex];
 
 function renderCount() {
     position.textContent = questions[currentIndex];
-    console.log (questions[currentIndex]);
+    // console.log (questions[currentIndex]);
 };
+
+const box = document.getElementById("i");
+const box2 = document.getElementById("ii");
+const box3 = document.getElementById("iii");
+const box4 = document.getElementById("iv");
+const box5 = document.getElementById("v");
 
 
 // We are trying to get the button to change to 2.
@@ -40,14 +46,54 @@ const backButton = document.getElementById('back');
 forwardButton.addEventListener('click', () => {
     currentIndex += 1;
     renderCount();
+    if (questions[currentIndex] === "2") {
+        box.removeAttribute("id", "question")
+        box2.setAttribute("id", "question")
+    }
+    if (questions[currentIndex] === "3") {
+        box2.removeAttribute("id", "question")
+        box3.setAttribute("id", "question")
+    }
+    if (questions[currentIndex] === "4") {
+        box3.removeAttribute("id", "question")
+        box4.setAttribute("id", "question")
+    }
+    if (questions[currentIndex] === "5") {
+        box4.removeAttribute("id", "question")
+        box5.setAttribute("id", "question")
+    }
+
+
 });
 
 backButton.addEventListener('click', () => {
     currentIndex -= 1;
     renderCount ();
+    if (questions[currentIndex] === "4") {
+        box5.removeAttribute("id", "question")
+        box4.setAttribute("id", "question")
+    }
+    if (questions[currentIndex] === "3") {
+        box4.removeAttribute("id", "question")
+        box3.setAttribute("id", "question")
+    }
+    if (questions[currentIndex] === "2") {
+        box3.removeAttribute("id", "question")
+        box2.setAttribute("id", "question")
+    }
+    if (questions[currentIndex] === "1") {
+        box2.removeAttribute("id", "question")
+        box.setAttribute("id", "question")
+    }
 });
 
-// I still need 
+
+
+
+if (questions[currentIndex] === "1") {
+    box.setAttribute("id", "question")
+    
+}
 
 
 
