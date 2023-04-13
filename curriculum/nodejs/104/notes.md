@@ -9,7 +9,8 @@
 
 
 ### Types
-- core  ()
+- core  
+    come out of the box with node. 
 - local
 - third-party 
 

@@ -2,7 +2,7 @@ var cowsay = require("cowsay");
 
 
 
-console.log(cowsay.think({
+console.log(cowsay.say({
     text : "I'm a moooodule",
     e : "pP",
     T : "J "
