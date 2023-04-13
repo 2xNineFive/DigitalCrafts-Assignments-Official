@@ -5,7 +5,11 @@ const server = express();
 
 server.get("/", (req, res)=> {
     // a server can only give one response at a time
-    res.json({message: "Hello Worlds!"});
+    res.json({
+        message: "Hello Worlds!"
+    }
+
+    );
 
     // that is why this line returns an error
     // res.send("Hello Universe!");
