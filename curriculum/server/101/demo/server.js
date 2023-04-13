@@ -16,7 +16,7 @@ server.listen(8080, ()=> {
 })
 
 
-// This is just an example showing how a function can do only one thing. Similarly, a server can .get one thing at a time. 
+// This is just an example showing how a function can do only one thing. Similarly, a server can .get one thing at a time.
 function someFunction () {
     // code here
     return someValue;
