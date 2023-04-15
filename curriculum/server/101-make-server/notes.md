@@ -6,7 +6,7 @@
 Follow these steps in the project root folder 
 - `npm init - y`
 - ` npm i express` 
-- `npm -D nodemon`
+- `npm i -D nodemon`
 - `touch server.js`
 - add the code to build a server (see **demo/**)
 - `npx nodemon server.js`
