@@ -1,8 +1,8 @@
 const express = require("express");
-
+const cors = require("cors");
 const server = express();
 
-
+server.use(cors());
 server.get("/", (req, res)=> {
     // a server can only give one response at a time
     res.json({
